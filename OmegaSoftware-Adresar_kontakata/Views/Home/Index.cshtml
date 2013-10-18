@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Dobrodošli!</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Za upute kako korisiti kliknite na "Upute".
+            </p>
+        </div>
+    </section>
+}
+<h5 style="color:red">*Trenutno stanje aplikacije</h5>
+        <p style="color:red">
+            Javlja se greška pri unosu kontakta u bazu. Problem nastaje na liniji <FONT FACE="courier">db.SaveChanges()</FONT>.
+            Veli da svojstva <FONT FACE="courier">phone.NumberTypeID</FONT> i <FONT FACE="courier">phone.DeletePhone</FONT> nisu definirani, 
+            što je apsurdno jer su stavljeni u klasu <FONT FACE="courier">ContactNumber</FONT>, a varijabla <FONT FACE="courier">contact</FONT>
+            u akciji <FONT FACE="courier">[HttpPost]ContactsController.Create</FONT> ima definirano <FONT FACE="courier">contact.Numbers.NumberTypeID = 0</FONT> i
+            <FONT FACE="courier">contact.Numbers.DeletePhone=false</FONT>.
+        </p>
+<h3>U bazi postoje 2 vrste tablica</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Tablica kontakata</h5>
+        Kontakti su ubačeni u grid koji se može vidjeti klikom na gumb "Kontakti".
+        Kontakt može sadržavati ime, prezime, grad, opis i popis telefonskih brojava.
+    </li>
+
+    <li class="two">
+        <h5>Tablica telefonskih brojeva</h5>
+        Telefonski brojevi su ubačeni u posebnu tablicu čiji sadržaj se može vidjeti odmah u gridu pod
+        kolonom "Svi telefoni" (samo brojevi), ili ukoliko se uđe u pregled/promjenu kontakta (tada je uz broj ispisan i 
+        tip telefona i njego opis).
+    </li>
+</ol>

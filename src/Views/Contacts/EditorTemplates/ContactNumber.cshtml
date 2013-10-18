@@ -1,0 +1,22 @@
+﻿@model OmegaSoftware_Adresar_kontakata.Models.ContactNumber
+@using OmegaSoftware_Adresar_kontakata.Models
+@Html.DisplayFor(x => x.Number)
+<div class="phoneNumber">
+  <p>
+    <label>Phone Number</label>
+    @Html.HiddenFor(model => model.ContactNumberID)
+    @Html.HiddenFor(model => model.ContactID)
+
+    @Html.TextBoxFor(x => x.Number)
+    @Html.HiddenFor(x => x.DeletePhone, new { @class = "mark-for-delete" })
+    @Html.RemoveLink("Remove", "div.phoneNumber", "input.mark-for-delete")
+  </p>
+  <p>
+    <label>Phone Type</label>
+    @Html.DropDownListFor(x => x.NumberTypeID, new SelectList(HtmlLists.NumberTypes, "Id", "Name"))
+  </p>
+  <p>
+    <label>Phone Description</label>
+    @Html.TextAreaFor(x => x.Description)
+  </p>
+</div>

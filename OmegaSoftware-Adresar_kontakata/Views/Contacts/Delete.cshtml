@@ -1,0 +1,54 @@
+﻿@model OmegaSoftware_Adresar_kontakata.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Brisanje kontakta</h2>
+
+<h3>Jeste li sigurni da želite izbrisati ovaj zapis?</h3>
+<fieldset>
+    <legend>Contact</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SecondName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SecondName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Numbers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Numbers)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Obriši" /> |
+        @Html.ActionLink("Natrag na listu", "Index")
+    </p>
+}

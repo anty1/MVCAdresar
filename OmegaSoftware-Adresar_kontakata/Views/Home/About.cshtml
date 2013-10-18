@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Upute";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Aplikacija je izrađena u MVC4 tehnologiji. Sadrži 2 kontrolera: "HomeController" i "ContactsController".
+        U listi u _layout.cshtml 3 oznake su vezane na HomeController ("Početna", "O autoru" i "Upute"), dok je 
+        oznaka "Kontakti" vezana na ContactsController. Grid u ContactsController.Index.cshml-u je povezan s dva modela:
+        Contact.cs i ContactNumber.cs. U relacijskom smislu ove dve klase predstavljaju dvije tablice u odnosu 1:N, tj.
+        međusobno su referencirane. U kontrolleru se njihovi zapisi dohvaćaju preko lista definiranih u klasi nasljeđenoj od
+        System.Data.Entity.DbContext, a zove se AdresarContext.
+    </p>
+
+    <p>
+        ContactsController sadrži sve potrebne akcije, a samim time i vieweve, za manipuliranje podacima kontakata:
+        Create.cshtml, Details.cshtml, Edit.cshtml i Delete.cshtml.
+        Prikaz polja u ContactsController.Create.cshtml-u je napravljen preko 2 EditorTemplate-a, čiji folder se
+        nalazi folderu ContactsControllera. EditorTemplate-i su Contact.cshtml i ContactNumber.cshtml. Oni se pozivaju sa
+        EditorForModel().
+        Za dodavanje/micanje polja za unos telefonskih brojeva pomaže js skripta CustomJs.js.
+    </p>
+
+    <p>
+        Za postavljanje baze treba samo namjestiti connectionstring u webconfigu na sljedeće:<br>
+        <FONT FACE="Courier">&lt;add name="OmegaSoftware-Adresar_kontakata" <br>
+         connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\adresar.mdf;Integrated Security=True" <br>
+         providerName="System.Data.SqlClient " /&gt;</FONT>.
+    </p>
+</article>
+
+<aside>
+    <h3>Linkovi</h3>
+    <p>
+        Popis linkova:
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Početna", "Index", "Home")</li>
+        <li>@Html.ActionLink("Upute", "About", "Home")</li>
+        <li>@Html.ActionLink("Kontakti", "Index", "Contacts")</li>
+        <li>@Html.ActionLink("O autoru", "Contact", "Home")</li>
+    </ul>
+</aside>

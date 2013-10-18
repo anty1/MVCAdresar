@@ -1,0 +1,36 @@
+﻿@model OmegaSoftware_Adresar_kontakata.Models.Contact
+@using OmegaSoftware_Adresar_kontakata.Models
+
+@Html.HiddenFor(x => x.ContactID)
+<div style="float:left">
+<p>
+  <label>Ime</label>
+  @Html.TextBoxFor(x => x.FirstName)
+</p>
+
+<p>
+  <label>Prezime</label>
+  @Html.TextBoxFor(x => x.SecondName)
+</p>
+
+<p>
+  <label>Grad</label>
+  @Html.TextBoxFor(x => x.City)
+</p>
+
+<p>
+  <label>Opis</label>
+  @Html.TextBoxFor(x => x.Description)
+</p>
+</div>
+<div style="float:right;width:550px">
+<div id="phoneNumbers">
+  @Html.EditorFor(x => x.Numbers)
+</div>
+<div>
+ <p>
+  @Html.AddLink("Dodaj tel. broj", "#phoneNumbers", ".phoneNumber", "Numbers", typeof(OmegaSoftware_Adresar_kontakata.Models.ContactNumber))
+ </p>
+</div>
+</div>
+<div style="clear:both"></div>

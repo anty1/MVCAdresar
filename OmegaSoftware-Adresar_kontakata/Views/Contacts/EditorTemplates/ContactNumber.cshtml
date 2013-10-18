@@ -1,0 +1,39 @@
+﻿@model OmegaSoftware_Adresar_kontakata.Models.ContactNumber
+@using OmegaSoftware_Adresar_kontakata.Models
+@Html.DisplayFor(x => x.Number)
+<div class="phoneNumber">
+  <div style="float:left">
+    <p>
+    <label>Broj telefona</label>
+    @Html.HiddenFor(model => model.ContactNumberID)
+    @Html.HiddenFor(model => model.ContactID)
+    @Html.TextBoxFor(x => x.Number)
+    </p>
+  </div>
+  <div style="float:left;margin-left:30px">
+      <p>
+        <label style="margin-bottom:10px">Tip telefona</label>
+        @Html.DropDownListFor(x => x.NumberTypeID, new SelectList(HtmlLists.NumberTypes, "Id", "Name"))
+      </p>
+  </div>
+  <div style="float:right;margin-left:30px">
+    <p>
+    @Html.HiddenFor(x => x.DeletePhone, new { @class = "mark-for-delete" })
+    @Html.RemoveLink("Makni", "div.phoneNumber", "input.mark-for-delete")
+    </p>
+  </div>
+  <div style="clear:both"></div>
+  <div  style="float:left;margin-top:-20px">
+    <label>Opis telefona:</label>
+  </div>
+    <style>
+        .wide
+        {
+            width: 400px;
+        }
+    </style>
+  <div  style="float:right;margin-top:-20px">
+    @Html.TextAreaFor(x => x.Description, new { @class= "wide" })
+  </div>
+  <div style="clear:both"></div>
+</div>
